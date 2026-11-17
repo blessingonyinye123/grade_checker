@@ -14,17 +14,23 @@ function getGrade(score) {
 }
 
 const checkBtn = document.getElementById("checkBtn");
+const clearBtn = document.getElementById("clearBtn");
 const nameInput = document.getElementById("nameInput");
 const scoreInput = document.getElementById("scoreInput");
 const resultArea = document.getElementById("resultArea");
 const resultList = document.getElementById("resultList");
 
 checkBtn.addEventListener("click", function() {
-    const name = nameInput.value;
+    const name = nameInput.value.trim();
     const score = Number(scoreInput.value);
 
+    if (name === "") {
+        resultArea.style.color = "red";
+        resultArea.textContent = "Error: Please enter a student name.";
+        return;
+    }
 
-    if (scoreInput.value === "" || score > 100) {
+    if (scoreInput.value === "" || score < 0 || score > 100) {
         resultArea.style.color = "red";
         resultArea.textContent = "Error: Please enter a valid score between 0 and 100.";
         return; 
@@ -47,16 +53,21 @@ checkBtn.addEventListener("click", function() {
     displayResults();
 });
 
+clearBtn.addEventListener("click", function() {
+    resultsArray.length = 0;
+    resultList.innerHTML = "";
+    resultArea.textContent = "";
+    nameInput.value = "";
+    scoreInput.value = "";
+});
+
 function displayResults() {
     resultList.innerHTML = "";
 
     for (let i = 0; i < resultsArray.length; i++) {
         const item = resultsArray[i];
-
         const li = document.createElement("li");
-
         li.textContent = `${item.name} scored ${item.score}: ${item.grade}`;
-        
         resultList.appendChild(li);
     }
 }
