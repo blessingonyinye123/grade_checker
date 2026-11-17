@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Checker</title>
+    
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        h1 {color: blue;}
+
+        #resultList {
+        list-style-type: none; /* Removes the default ugly bullet dots */
+        padding: 15px;
+        margin: 20px auto; /* Centers the box on the page */
+        width: 300px; /* Sets a fixed width for the box */
+        background-color: #f9f9f9; /* Soft light background */
+        border: 2px solid #ccc; /* Clean border around the box */
+        border-radius: 8px; /* Rounded corners */
+        text-align: left; /* Aligns text neatly inside the box */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    }
+
+    /* Style for each individual item inside the box */
+    #resultList li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee; /* Adds a light divider line between items */
+    }
+
+    /* Removes the divider line from the very last item */
+    #resultList li:last-child {
+        border-bottom: none;
+    }
+    </style>
+</head>
+<body>
+
+    <h1>Grade Checker Page</h1>
+
+    <label for="nameInput">Student Name:</label>
+    <input type="text" id="nameInput" placeholder="Enter name">
+
+    <br><br>
+
+    <label for="scoreInput">Score:</label>
+    <input type="number" id="scoreInput" placeholder="Enter score">
+
+    <br><br>
+
+    <button id="checkBtn">Check</button>
+
+    <br><br>
+
+    <p id="resultArea"></p>
+    
+    <p id="resultArea"></p>
+
+    <ul id="resultList"></ul>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
